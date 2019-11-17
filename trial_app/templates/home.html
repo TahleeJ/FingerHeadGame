@@ -1,12 +1,10 @@
-{% extends 'layout.html' %}
-{% block content %}
-
-  {% for post in posts %}
-    <h1>{{ post.title }}</h1>
-    <p>By {{ post.author }} on {{ post.date_posted }}</p>
-    <p> {{ post.content }}
-  {% endfor %}
-
+<!DOCTYPE html>
+<html>
+<head>
+    {% include "layout.html" %}
+</head>
+<!-- {% block content %} -->
+<body>
 <form id="testaddnew" method="get" action="/newUser">
 <input type="submit" value="Test Button 1" name="hold" required>
 </form>
@@ -19,4 +17,6 @@
     <p>{{user.score}}   {{user.gamerTag}}</p>
     {% endfor %}
 </div>
-{% endblock content %}
+</body>
+<!-- {% endblock content %} -->
+</html>

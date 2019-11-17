@@ -1,6 +1,22 @@
-{% extends 'layout.html' %}
-{% block things %}
-
-  <h1>Hi</h1>
-
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% include "layout.html" %}
+</head>
+<!-- {% block content %} -->
+<body>
+<form id="testaddnew" method="get" action="/newUser">
+<input type="submit" value="Test Button 1" name="hold" required>
+</form>
+<form id="testaddscore" method="get" action="/testUser">
+<input type="submit" value="Test Button 2" name="hold" required>
+</form>
+<div>
+    <h1>Leaderboard</h1>
+    {% for user in leaderboard %}
+    <p>{{user.score}}   {{user.gamerTag}}</p>
+    {% endfor %}
+</div>
+</body>
+<!-- {% endblock content %} -->
+</html>

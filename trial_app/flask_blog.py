@@ -1,5 +1,6 @@
 from flask import request, Flask, render_template, flash, session, redirect
 # from flask.ext.session import Session
+global currentUser
 
 class Score:
     def __init__(self, score, gamerTag):
@@ -11,7 +12,6 @@ class Leaderboard:
         self.board=[Score(0, "TBD")]
 
 leaderboard = Leaderboard()
-leaderboard.board.sort(key=lambda x:x.score, reverse=True)
 
 class User:
     def __init__(self, firstName, lastName, gamerTag):
@@ -26,27 +26,12 @@ class User:
 from flask import Flask, render_template
 app = Flask(__name__)
 
-posts = [
-    {
-        'author': 'Jackson Leone',
-        'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted': "November 13, 2019"
-    },
-    {
-        'author': 'Juan Nicolas Ramirez',
-        'title': 'Blog Post 2',
-        'content': 'Second post content',
-        'date_posted': "November 12, 2019"
-    }
-]
-
 # scores = [leaderboard.keys()]
 
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', posts=posts, leaderboard=sorted(leaderboard.board, key=lambda x: int(x.score), reverse=True))
+    return render_template('home.html', leaderboard=sorted(leaderboard.board, key=lambda x: int(x.score), reverse=True))
 
 @app.route("/about")
 def about():
