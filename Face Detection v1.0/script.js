@@ -27,5 +27,18 @@ video.addEventListener('play', () => {
     faceapi.draw.drawDetections(canvas, resizedDetections)
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+      
+    
+    const landmarks = await faceapi.detectFaceLandmarks(video)
+    const nose = landmarks.getNose();
+    console.log("Nose ===>" + JSON.stringify(nose));
+      
   }, 100)
+    
+    
+
+        
 })
+
+
+
