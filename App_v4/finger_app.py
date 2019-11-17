@@ -23,7 +23,6 @@ class User:
         # leaderboard.board.append(Score(0, gamerTag))
         # leaderboard.board.append({0: gamerTag})
 
-from flask import Flask,render_template
 app = Flask(__name__)
 
 @app.route("/")
