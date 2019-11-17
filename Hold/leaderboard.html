@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    {% include "layout.html" %}
+</head>
+<body>
+<form id="testaddnew" method="get" action="/newUser">
+<input type="submit" value="Test Button 1" name="hold" required>
+</form>
+<form id="testaddscore" method="get" action="/testUser">
+<input type="submit" value="Test Button 2" name="hold" required>
+</form>
+    <h1>Leaderboard</h1>
+    <div id="leaderboard-box" style="display: flex; display: table; width: 70%; margin-left: 15%; margin-right: 15%;">
+    <div style="display:table-row">
+    <div id="score-box" style="display:table-cell; width: 10%; border: solid yellow 15px; text-align:center; font-size:22px;">
+    {% for user in nums %}
+    <p>{{user}}</p>
+    {% endfor %}
+    </div>
+    <div id="score-box" style="display:table-cell; width: 45%; border: solid blue 15px; text-align:center; font-size:22px;">
+    {% for user in leaderboard %}
+    <p>{{user.score}}</p>
+    {% endfor %}
+    </div>
+    <div id="gamertag-box" style="display:table-cell; width 45%; border: solid red 15px; text-align:center; font-size:22px;">
+    {% for user in leaderboard %}
+    <p>{{user.gamerTag}}</p>
+    {% endfor %}
+    </div>
+    </div>
+    </div>
+</body>
+</html>
