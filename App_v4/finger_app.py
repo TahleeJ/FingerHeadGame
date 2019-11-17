@@ -2,34 +2,16 @@ from flask import request, Flask, render_template, flash, session, redirect
 # from flask.ext.session import Session
 global currentUser
 
-class Score:
-    def __init__(self, score, gamerTag):
-        self.score = score
-        self.gamerTag = gamerTag
-
-class Leaderboard:
-    def __init__(self):
-        self.board=[Score(0, "TBD")]
-
-leaderboard = Leaderboard()
-
-class User:
-    def __init__(self, firstName, lastName, gamerTag):
-        self.firstName = firstName
-        self.lastName = lastName
-        self.gamerTag = gamerTag
-        temp = Score(0, gamerTag)
-        leaderboard.board.append(temp)
-        # leaderboard.board.append(Score(0, gamerTag))
-        # leaderboard.board.append({0: gamerTag})
-
-from flask import Flask,render_template
 app = Flask(__name__)
 
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html", leaderboard=sorted(leaderboard.board, key=lambda x: int(x.score), reverse=True))
+    return render_template("home.html")
+
+@app.route('/leaderboard')
+def leaderboard():
+    return render_template("leaderboard.html", leaderboard=sorted(leaderboard.board, key=lambda x: int(x.score), reverse=True))
 
 @app.route('/newUser', methods=['GET', 'POST'])
 def newUser():
@@ -55,6 +37,27 @@ def testUser():
         return redirect("/home")
     else:
         return render_template('test_user.html', title='testUser')
+
+class Score:
+    def __init__(self, score, gamerTag):
+        self.score = score
+        self.gamerTag = gamerTag
+
+class Leaderboard:
+    def __init__(self):
+        self.board=[Score(0, "TBD")]
+
+leaderboard = Leaderboard()
+
+class User:
+    def __init__(self, firstName, lastName, gamerTag):
+        self.firstName = firstName
+        self.lastName = lastName
+        self.gamerTag = gamerTag
+        temp = Score(0, gamerTag)
+        leaderboard.board.append(temp)
+        # leaderboard.board.append(Score(0, gamerTag))
+        # leaderboard.board.append({0: gamerTag})
 
 if __name__ == '__main__':
     app.run(debug=True)
