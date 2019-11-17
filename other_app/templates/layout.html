@@ -12,6 +12,10 @@
 </head>
 
 <body>
+  <div>
+    <h1 class="display-3" align="center">Finger Head Game</h1>
+  </div>
+
   <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" align="center" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,15 +43,18 @@
         </li>
         <li class="nav-item" align = "center">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
         </li>
       </ul>
+      <div align="right">
+      <ul class="navbar-nav mr-auto">
+        <button type="button" class="btn btn-dark" align="right">Dark</button>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+      </ul>
+    </div>
     </div>
   </nav>
-  <!-- <button class="btn btn-primary">hi</button>
-  <div class = "container">
-    {% block things %}{% endblock %}
-  </div> -->
+
+  {% block things %}{% endblock %}
 
 
   <!-- Optional JavaScript -->
