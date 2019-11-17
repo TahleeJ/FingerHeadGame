@@ -3,20 +3,44 @@
 <head>
     {% include "layout.html" %}
 </head>
-<!-- {% block content %} -->
 <body>
-<form id="testaddnew" method="get" action="/newUser">
-<input type="submit" value="Test Button 1" name="hold" required>
-</form>
-<form id="testaddscore" method="get" action="/testUser">
-<input type="submit" value="Test Button 2" name="hold" required>
-</form>
-<div>
-    <h1>Leaderboard</h1>
-    {% for user in leaderboard %}
-    <p>{{user.score}}   {{user.gamerTag}}</p>
-    {% endfor %}
-</div>
+  <div id="container">
+      <video autoplay='true' id=videoElement>
+      </video>
+    </div>
+
+    <script type="text/javascript">
+      var imagesArray = ["left.jpg", "right.jpg", "up.jpg", "down.jpg"];
+      function displayImage(){
+        var num = Math.floor(Math.random() * 4);
+        document.canvas.src = imagesArray[num];
+      }
+    </script>
+
+    <div id = game>
+
+    <script>
+      var video = document.querySelector("#videoElement");
+
+      if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function (stream) {
+        video.srcObject = stream;
+      })
+      .catch(function (err0r) {
+        console.log("Something went wrong!");
+      });
+      }
+    </script>
+
+    <div class="container">
+      <div class="centered"><img src="{{url_for('static', filename='blank.jpg')}}" name="canvas" /></div>
+    </div>
+
+  </div>
+
+  <div id="button">
+   <input class="button" onclick="displayImage();" type=button value="Start">
+  </div>
 </body>
-<!-- {% endblock content %} -->
 </html>

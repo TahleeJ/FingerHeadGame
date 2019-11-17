@@ -1,5 +1,5 @@
-from flask import request, Flask, render_template, flash, session, redirect
-# from flask.ext.session import Session
+from flask import request, Flask, render_template, flash, redirect
+
 global currentUser
 
 class Score:
@@ -23,13 +23,21 @@ class User:
         # leaderboard.board.append(Score(0, gamerTag))
         # leaderboard.board.append({0: gamerTag})
 
-from flask import Flask,render_template
 app = Flask(__name__)
 
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html", leaderboard=sorted(leaderboard.board, key=lambda x: int(x.score), reverse=True))
+    return render_template("home.html")
+
+@app.route('/leaderboard')
+def scores():
+    return render_template('leaderboard.html', leaderboard=sorted(leaderboard.board, key=lambda x: int(x.score), reverse=True))
+
+@app.route('/introduction')
+def introduction():
+    return render_template("instructions.html")
+
 
 @app.route('/newUser', methods=['GET', 'POST'])
 def newUser():
