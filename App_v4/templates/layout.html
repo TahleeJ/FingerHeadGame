@@ -54,6 +54,21 @@
     </div>
   </nav>
 
+    if (navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+    </script>
+  <div id=button>
+    <form action="/">
+      <button class="button" type="submit">Start</button>
+    </form><br></td>
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
