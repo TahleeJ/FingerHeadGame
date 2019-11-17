@@ -1,5 +1,6 @@
 from flask import request, Flask, render_template, flash, session, redirect
 # from flask.ext.session import Session
+global currentUser
 
 class Score:
     def __init__(self, score, gamerTag):
@@ -11,7 +12,6 @@ class Leaderboard:
         self.board=[Score(0, "TBD")]
 
 leaderboard = Leaderboard()
-leaderboard.board.sort(key=lambda x:x.score, reverse=True)
 
 class User:
     def __init__(self, firstName, lastName, gamerTag):
