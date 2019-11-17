@@ -29,5 +29,9 @@ def about():
 def webcam():
     return render_template('webcam.html', title='Webcam')
 
+@app.route('/webcam2')
+def hello():
+    return render_template('webcam2.html', title='Other Webcam')
+
 if __name__ == '__main__':
     app.run(debug=True)
