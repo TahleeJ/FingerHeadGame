@@ -1,5 +1,5 @@
-from flask import request, Flask, render_template, flash, session, redirect
-# from flask.ext.session import Session
+from flask import request, Flask, render_template, flash, redirect
+
 global currentUser
 
 class Score:
