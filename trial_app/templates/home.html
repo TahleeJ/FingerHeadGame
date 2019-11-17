@@ -5,12 +5,6 @@
 </head>
 <!-- {% block content %} -->
 <body>
-  {% for post in posts %}
-    <h1>{{ post.title }}</h1>
-    <p>By {{ post.author }} on {{ post.date_posted }}</p>
-    <p> {{ post.content }}
-  {% endfor %}
-
 <form id="testaddnew" method="get" action="/newUser">
 <input type="submit" value="Test Button 1" name="hold" required>
 </form>
