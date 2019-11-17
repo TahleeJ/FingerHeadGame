@@ -34,6 +34,11 @@ def home():
 def scores():
     return render_template('leaderboard.html', leaderboard=sorted(leaderboard.board, key=lambda x: int(x.score), reverse=True))
 
+@app.route('/introduction')
+def introduction():
+    return render_template("instructions.html")
+
+
 @app.route('/newUser', methods=['GET', 'POST'])
 def newUser():
     if request.method == 'POST':
