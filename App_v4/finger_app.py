@@ -28,7 +28,11 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html", leaderboard=sorted(leaderboard.board, key=lambda x: int(x.score), reverse=True))
+    return render_template("home.html")
+
+@app.route('/leaderboard')
+def scores():
+    return render_template('leaderboard.html', leaderboard=sorted(leaderboard.board, key=lambda x: int(x.score), reverse=True))
 
 @app.route('/newUser', methods=['GET', 'POST'])
 def newUser():
