@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="C:\Users\tahle\CS\Finger Head Game\App_v4\templates\lb.css"/>
     {% include "layout.html" %}
 </head>
-<!-- {% block content %} -->
 <body>
 <form id="testaddnew" method="get" action="/newUser">
 <input type="submit" value="Test Button 1" name="hold" required>
@@ -11,12 +12,20 @@
 <form id="testaddscore" method="get" action="/testUser">
 <input type="submit" value="Test Button 2" name="hold" required>
 </form>
-<div>
     <h1>Leaderboard</h1>
+    <div id="leaderboard-box" style="display: flex; display: table; width: 70%; margin-left: 15%; margin-right: 15%;">
+    <div style="display:table-row">
+    <div id="score-box" style="display:table-cell; width: 50%; border: solid blue 15px; text-align:center; font-size:22px;">
     {% for user in leaderboard %}
-    <p>{{user.score}}   {{user.gamerTag}}</p>
+    <p>{{user.score}}</p>
     {% endfor %}
-</div>
+    </div>
+    <div id="gamertag-box" style="display:table-cell; width 50%; border: solid red 15px; text-align:center; font-size:22px;">
+    {% for user in leaderboard %}
+    <p>{{user.gamerTag}}</p>
+    {% endfor %}
+    </div>
+    </div>
+    </div>
 </body>
-<!-- {% endblock content %} -->
 </html>

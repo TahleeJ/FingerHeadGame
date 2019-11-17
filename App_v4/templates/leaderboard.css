@@ -1,0 +1,35 @@
+/* body {
+    display: flex;
+    /* display: table; */
+/* } */
+body {
+    background-color: yellow;
+}
+#leaderboard-box {
+    display: flex;
+    align-items: center;
+    /* width: 70%; */
+    flex-direction: row;
+    width: 500px;
+    height: 500px;
+    border: solid orange 15px;
+}
+
+#score-box {
+    /* float:left; */
+    display: flex;
+    padding: 100px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    border: solid blue 15px;
+    /* flex-direction: row */
+}
+
+#gamertag-box {
+    /* float:left; */
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    border: solid red 15px;
+}

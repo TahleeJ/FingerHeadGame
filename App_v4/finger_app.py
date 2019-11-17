@@ -18,8 +18,7 @@ class User:
         self.firstName = firstName
         self.lastName = lastName
         self.gamerTag = gamerTag
-        temp = Score(0, gamerTag)
-        leaderboard.board.append(temp)
+        leaderboard.board.append(Score(0, gamerTag))
         # leaderboard.board.append(Score(0, gamerTag))
         # leaderboard.board.append({0: gamerTag})
 
